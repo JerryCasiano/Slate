@@ -1,0 +1,7 @@
+[X-GNOME-Metatheme]
+Name=Slate
+Encoding=UTF-8
+GtkTheme=Slate
+IconTheme=Adwaita
+CursorTheme=Adwaita
+CursorSize=24
