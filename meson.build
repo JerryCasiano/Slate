@@ -14,8 +14,6 @@ if sassc.found()
       '_additions.scss',
     ])
 
-
-
     normal = custom_target('Slate',
                             input: 'gtk-contained.scss',
                             output: 'gtk.css',

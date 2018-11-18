@@ -596,7 +596,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 .inline-toolbar:backdrop, searchbar > revealer > box:backdrop, .location-bar:backdrop { border-color: silver; background-color: #e1e1e1; box-shadow: none; transition: 200ms ease-out; }
 
 /*************** Header bars * */
-.titlebar:not(headerbar), headerbar { padding: 0px 6px; min-height: 32px; border-width: 0 0 1px; border-style: solid; border-color: #b3b3b3; border-radius: 0; background-image: linear-gradient(to bottom, #e4e4e4, #d4d4d4); box-shadow: inset 0 1px rgba(255, 255, 255, 0.8), inset 0 -1px rgba(255, 255, 255, 0.2); /* @if $ov != none { background: $c $ov, $gradient; } @else { background: $c $gradient; } box-shadow: inset 0 1px $hc; // top highlight */ }
+.titlebar:not(headerbar), headerbar { padding: 0px 6px; min-height: 32px; border-width: 0 0 1px; border-style: solid; border-color: #b3b3b3; border-radius: 0; background-image: linear-gradient(to bottom, #e4e4e4, #d4d4d4); box-shadow: inset 0 1px rgba(255, 255, 255, 0.8), inset 0 -1px rgba(255, 255, 255, 0.2); }
 
 .titlebar:backdrop:not(headerbar), headerbar:backdrop { border-color: silver; background-color: #f3f3f3; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0.8); transition: 200ms ease-out; }
 
@@ -670,7 +670,7 @@ searchbar > revealer > box { margin: -6px; padding: 6px; }
 
 .default-decoration.titlebar:not(headerbar), headerbar.default-decoration { min-height: 26px; padding: 4px; }
 
-.default-decoration.titlebar:not(headerbar) button.titlebutton, headerbar.default-decoration button.titlebutton { min-height: 22px; min-width: 22px; margin: 0; padding: 0; }
+.default-decoration.titlebar:not(headerbar) button.titlebutton, headerbar.default-decoration button.titlebutton { min-height: 24px; min-width: 24px; margin: 0; padding: 0; }
 
 .solid-csd .titlebar:backdrop:dir(rtl):not(headerbar), .solid-csd .titlebar:backdrop:dir(ltr):not(headerbar), .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar), .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr) { margin-left: -1px; margin-right: -1px; margin-top: -1px; border-radius: 0; box-shadow: none; }
 
@@ -801,9 +801,15 @@ menubar > menuitem:hover, .menubar > menuitem:hover { box-shadow: inset 0 -3px #
 
 menubar > menuitem:disabled, .menubar > menuitem:disabled { color: #919191; box-shadow: none; }
 
-menu, .menu, .context-menu { margin: 4px; padding: 2px 0px; background-color: #f8f8f8; border: 1px solid #b3b3b3; }
+.background.popup { background-color: transparent; box-shadow: 0px 0px 4px 1px rgba(179, 179, 179, 0.2); }
+
+menu, .menu, .context-menu { margin: 4px; padding: 2px 0px; background-color: #f8f8f8; border: 1px solid #b3b3b3; border-radius: 5px; }
 
 .csd menu, .csd .menu, .csd .context-menu { border: none; }
+
+menu:first-child, .menu:first-child, .context-menu:first-child { border-top-right-radius: 5px; border-top-left-radius: 5px; }
+
+menu:last-child, .menu:last-child, .context-menu:last-child { border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; }
 
 menu:backdrop, .menu:backdrop, .context-menu:backdrop { background-color: whitesmoke; }
 
@@ -825,11 +831,11 @@ menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl), .context-menu menui
 
 menu menuitem label:dir(rtl), menu menuitem label:dir(ltr), .menu menuitem label:dir(rtl), .menu menuitem label:dir(ltr), .context-menu menuitem label:dir(rtl), .context-menu menuitem label:dir(ltr) { color: inherit; }
 
-menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; background-color: #f8f8f8; border-radius: 0; }
+menu > arrow, .menu > arrow, .context-menu > arrow { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0); text-shadow: none; -gtk-icon-shadow: none; min-height: 16px; min-width: 16px; padding: 4px; border-radius: 0; }
 
-menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { margin-top: -6px; border-bottom: 1px solid #e4e4e4; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+menu > arrow.top, .menu > arrow.top, .context-menu > arrow.top { border-bottom: 1px solid #e4e4e4; -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); border-top-right-radius: 5px; border-top-left-radius: 5px; }
 
-menu > arrow.bottom, .menu > arrow.bottom, .context-menu > arrow.bottom { margin-bottom: -6px; border-top: 1px solid #e4e4e4; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+menu > arrow.bottom, .menu > arrow.bottom, .context-menu > arrow.bottom { border-top: 1px solid #e4e4e4; -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; }
 
 menu > arrow:hover, .menu > arrow:hover, .context-menu > arrow:hover { background-color: #e4e4e4; }
 
@@ -846,7 +852,7 @@ menuitem check:dir(ltr), menuitem radio:dir(ltr) { margin-right: 7px; }
 menuitem check:dir(rtl), menuitem radio:dir(rtl) { margin-left: 7px; }
 
 /*************** Popovers   * */
-popover.background { padding: 2px; border-radius: 5px; background-color: #f3f3f3; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+popover.background { padding: 2px; border-radius: 5px; background-color: #f3f3f3; box-shadow: 0px 0px 4px 1px rgba(179, 179, 179, 0.2); }
 
 .csd popover.background, popover.background { border: 1px solid #b3b3b3; }
 
@@ -1890,11 +1896,11 @@ decoration:backdrop { box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(
 
 .ssd decoration { box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.23); }
 
-.csd.popup decoration { border-radius: 0; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
+.csd.popup decoration { border-radius: 5px; box-shadow: 0 1px 2px rgba(179, 179, 179, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.13); }
 
 tooltip.csd decoration { border-radius: 5px; box-shadow: none; }
 
-messagedialog.csd decoration { border-radius: 7px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.13); }
+messagedialog.csd decoration { border-radius: 7px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.13); }
 
 .solid-csd decoration { margin: 0; padding: 4px; background-color: #b3b3b3; border: solid 1px #b3b3b3; border-radius: 0; box-shadow: inset 0 0 0 3px #eeeeee, inset 0 1px rgba(255, 255, 255, 0.8); }
 
@@ -1970,7 +1976,7 @@ button.emoji-section:hover label { opacity: 0.775; }
 
 button.emoji-section:checked label { opacity: 1; }
 
-popover.emoji-picker .emoji { font-size: x-large; padding: 6px; border-radius: 6px; }
+popover.emoji-picker .emoji { font-size: x-large; padding: 6px; border-radius: 5px; }
 
 popover.emoji-picker .emoji :hover { background: #3584e4; }
 
