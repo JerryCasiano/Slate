@@ -2,7 +2,7 @@
 // Control Center sidebar
 scrolledwindow.view > viewport.frame > stack > list {
   > row.activatable {
-    padding: 0;
+    padding: 0px;
   }
 }
 
@@ -12,18 +12,18 @@ statusbar {
 }
 
 .gedit-search-slider {
-    border-width: 0 1 1 1;
+    border-width: 0px 1px 1px 1px;
     border-style: solid;
-    border-radius: 0 0 $popover_radius $popover_radius;
+    border-radius: 0px 0px $popover_radius $popover_radius;
     border-color: lighten($borders_color, 0.10);
     padding: 2px;
-    margin: 0 $_switch_margin $_switch_margin $_switch_margin;
+    margin: 0px $_switch_margin $_switch_margin $_switch_margin;
 
     $_hc: mix($top_hilight, $wm_bg_a, 50%);
     @include headerbar_fill($wm_bg_a, $_hc);
 
     .search * {
-        margin: 2;
+        margin: 2px;
     }
 
 }
