@@ -1,6 +1,9 @@
 project('Slate')
 
+variant = 'dark'
+
 sassc = find_program('sassc', required: false)
+
 
 if sassc.found()
 
@@ -22,8 +25,6 @@ if sassc.found()
                             ],
                             depend_files: scss_files,
                             build_by_default: true)
-
-    variant = 'dark'
 
     dark = custom_target('Slate-' + variant,
                             input: 'gtk-contained-@0@.scss'.format(variant),
